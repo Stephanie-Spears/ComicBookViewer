@@ -571,4 +571,42 @@ To make our model view strongly typed, we just need to add a model view directiv
 (in View)
 ```CSharp
 @model ComicBookViewer.Models.ComicBook
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewBag.Title = Model.DisplayText;
+
+}
+
+<h2>@Model.DisplayText</h2>
+<div class="row">
+    <div class="col-md-6">
+        <div class="well">
+            <h5><label>Series Title:</label> @Model.SeriesTitle</h5>
+            <h5><label>Issue #:</label> @Model.IssueNumber</h5>
+            <h5><label>Favorite:</label> @(Model.Favorite ? "Yes" : "No") </h5>
+            @if (Model.Artists.Length > 0)
+            {
+                <h5>Artist:</h5>
+                <div>
+                    <ul>
+                        @foreach (var artist in Model.Artists)
+                        {
+                            <li>@artist.Role: @artist.Name</li>
+                        }
+                    </ul>
+                </div>
+            }
+        </div>
+        <h5>Description:</h5>
+        <div>@Html.Raw(Model.DescriptionHtml)</div>
+    </div>
+    <div class="col-md-6">
+        <img src="/Images/@Model.CoverImageFileName"
+             alt="@Model.DisplayText" class="img-responsive" />
+    </div>
+</div>
 ```
+
+### Repository Design Pattern
+Separation of concerns design principal
+This will give us a central location fro storing and managing our comicbook model instances (Adding Data Folder)
