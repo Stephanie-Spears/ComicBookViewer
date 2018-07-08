@@ -619,3 +619,6 @@ Step Into and Step Over both tell the debugger to execute the next line of code,
 Step Into will execute the method call and suspend execution on the first line of code in the calling method
 Step Over will execute the entire method and suspend execution on the next line of code after the method call 
 Step Out will finish the Step Into's method lines
+
+### Static Method
+Declaring a method as static means it can be called directly on the class itself, without having to create an object instance first. 
