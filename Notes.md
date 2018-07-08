@@ -562,3 +562,13 @@ public class HomeController : Controller
 ```
 In the above example, we have applied [HandleError] attribute to HomeController. So now it will display Error page if any action method of HomeController would throw unhandled exception. 
 Filters can be applied globally in FilterConfig class, at Controller-level, or at action method level.
+
+
+
+## Strongly Typed MVC View
+A view that is associated with a specific type, which exposes the model instance through it's model property
+To make our model view strongly typed, we just need to add a model view directive to the top of the view. 
+(in View)
+```CSharp
+@model ComicBookViewer.Models.ComicBook
+```
