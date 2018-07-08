@@ -610,3 +610,12 @@ To make our model view strongly typed, we just need to add a model view directiv
 ### Repository Design Pattern
 Separation of concerns design principal
 This will give us a central location fro storing and managing our comicbook model instances (Adding Data Folder)
+
+#### Private Fields
+Naming Convention -> _myPrivateField
+
+### Debugging
+Step Into and Step Over both tell the debugger to execute the next line of code, but they handle method calls differently 
+Step Into will execute the method call and suspend execution on the first line of code in the calling method
+Step Over will execute the entire method and suspend execution on the next line of code after the method call 
+Step Out will finish the Step Into's method lines
