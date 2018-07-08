@@ -622,3 +622,7 @@ Step Out will finish the Step Into's method lines
 
 ### Static Method
 Declaring a method as static means it can be called directly on the class itself, without having to create an object instance first. 
+
+```CSharp
+@Html.ActionLink("Return to List", "Index", null, new { @class = "btn btn-default" }) //here we escape the csharp keyword class with an @ symbol so we can use it in our html
+```
