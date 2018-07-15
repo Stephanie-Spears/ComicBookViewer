@@ -626,3 +626,26 @@ Declaring a method as static means it can be called directly on the class itself
 ```CSharp
 @Html.ActionLink("Return to List", "Index", null, new { @class = "btn btn-default" }) //here we escape the csharp keyword class with an @ symbol so we can use it in our html
 ```
+
+# Entity Framework
+Normally when programming using a SQL database, the code would have to be written using strings, so Visual Studio couldn't assist with things like syntax highlighting, etc. So the Entity Framework was created to be a mediary.
+When using the Entity Framework, developers interact with a set of models or entities, and a database context class to do database operations. Instead of interacting directly with the database, Entity Framework acts as a mediator, overseeing the movement of data from the database to the entity classes and back again. 
+EF is a type of framework or library, known as an Object Relational Mapper, or ORM. 
+Entities in EF are just plain old C# objects (POCO) classes. Generally, each Entity class represents a table in the database, and Entity class properties represent columns in their respective tables. 
+EF queries are written using LINQ using either the fluent or query syntax.
+You can add the Entity Framework through NuGet
+
+Describing the shape of the data is called Data Modeling. You define the Entities, the Properties on those Entities, and Relationshipos between Entities.
+The Data Model in EF terminology, is called the Entity Data Model--EDM, or just "the model"
+
+## EF Supported Workflows
+1. Database First -> When you want to generage your model and entity classes from an existing database
+2. Model First -> When you don't have a database, and you want to define your model using the visual designer and allow EF to generate your entity classes and database
+3. Code First -> Foregoes the visual designer, allows you to write the code for your classes. 
+
+### Database First
+After connecting with the database, EF generates teh model, then the Entities and Context data classes are generated from the model. Changes that need to be made to the model start in the database by making Schema changes. This means that the model, from the application-side is effectively read-only. Usually good for migrating existing projects to EF.
+
+### Model First
+You start with an empty model and use the EF Designer to define the Entities and the relationships between them.
+The model generates the Entities and Context classes, as well as the database. The model can be changed during development, but the database will be dropped and recreated when flowing the changes. Because of this, once an app goes into production, the model becomes read-only from the application-side.
